@@ -449,6 +449,7 @@ export default class Tree extends React.Component {
                 nodeData={nodeData}
                 name={nodeData.name}
                 attributes={nodeData.attributes}
+                image={nodeData.image}
                 onClick={this.handleNodeToggle}
                 onMouseOver={this.handleOnMouseOverCb}
                 onMouseOut={this.handleOnMouseOutCb}

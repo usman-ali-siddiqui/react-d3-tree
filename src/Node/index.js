@@ -75,10 +75,19 @@ export default class Node extends React.Component {
   }
 
   renderNodeElement(nodeStyle) {
-    const { circleRadius, nodeSvgShape } = this.props;
+    const { circleRadius, nodeSvgShape, image } = this.props;
+    console.log('innnnn', image);
     /* TODO: DEPRECATE <circle /> */
     if (circleRadius) {
-      return <circle r={circleRadius} style={nodeStyle.circle} />;
+      console.log('inner', image);
+      return (
+          <defs> 
+            <pattern id="img1" width="100%" height="650">
+              <image href={image} x="-30" y="-30" width="380" height="267" /> 
+            </pattern> 
+          </defs>
+          <circle r={circleRadius} style={nodeStyle.circle} fill='url(#img1)' />
+           );
     }
 
     return nodeSvgShape.shape === 'none'
@@ -159,6 +168,7 @@ Node.defaultProps = {
 Node.propTypes = {
   nodeData: PropTypes.object.isRequired,
   nodeSvgShape: PropTypes.object.isRequired,
+  image: PropTypes.string.isRequired,
   nodeLabelComponent: PropTypes.object,
   nodeSize: PropTypes.object.isRequired,
   orientation: PropTypes.oneOf(['horizontal', 'vertical']).isRequired,

@@ -23,6 +23,11 @@ type: `number`
 defaultValue: `undefined`
 
 
+### `image` (required)
+
+type: `string`
+
+
 ### `name` (required)
 
 type: `string`
